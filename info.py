@@ -1,5 +1,6 @@
 import re, time
 from os import environ
+from dotenv import load_dotenv
 from Script import script 
 
 id_pattern = re.compile(r'^.\d+$')
@@ -9,6 +10,7 @@ def is_enabled(value, default):
     elif value.strip().lower() in ["off", "false", "no", "0", "disable", "n"]: return False
     else: return default
 
+load_dotenv()  # Load from .env file
 
 # PyroClient Setup 
 API_ID = int(environ['API_ID'])
